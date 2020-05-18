@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sleepTrackerFragment">
+    <fragment
+        android:id="@+id/sleepTrackerFragment"
+        android:name="com.pustovit.trackmysleepquality.sleeptracker.SleepTrackerFragment"
+        android:label="sleep_tracker_fragment"
+        tools:layout="@layout/sleep_tracker_fragment" >
+        <action
+            android:id="@+id/action_sleepTrackerFragment_to_sleepQualityFragment"
+            app:destination="@id/sleepQualityFragment"
+            app:popUpTo="@id/sleepQualityFragment" />
+        <action
+            android:id="@+id/action_sleepTrackerFragment_to_sleepQualityDetail"
+            app:destination="@id/sleepQualityDetail"
+            app:popUpTo="@id/sleepTrackerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sleepQualityFragment"
+        android:name="com.pustovit.trackmysleepquality.sleepquality.SleepQualityFragment"
+        android:label="sleep_quality_fragment"
+        tools:layout="@layout/sleep_quality_fragment" >
+        <action
+            android:id="@+id/action_sleepQualityFragment_to_sleepTrackerFragment"
+            app:destination="@id/sleepTrackerFragment" />
+        <argument
+            android:name="sleepNightKey"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/sleepQualityDetail"
+        android:name="com.pustovit.trackmysleepquality.sleepqualitydetail.SleepQualityDetail"
+        android:label="SleepQualityDetail"
+        tools:layout="@layout/sleep_quality_detail_fragment">
+        <argument
+            android:name="sleepNightId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_sleepQualityDetail_to_sleepTrackerFragment"
+            app:destination="@id/sleepTrackerFragment" />
+    </fragment>
+</navigation>
